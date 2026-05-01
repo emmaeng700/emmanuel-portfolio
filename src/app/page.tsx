@@ -10,22 +10,25 @@ import Skills from '@/components/Skills';
 import Leadership from '@/components/Leadership';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import Cursor from '@/components/Cursor';
+import AnimatedSection from '@/components/AnimatedSection';
 
 export default function Home() {
   return (
     <>
+      <Cursor />
       <Navbar />
       <main>
         <Hero />
         <Currently />
-        <About />
-        <Experience />
+        <AnimatedSection><About /></AnimatedSection>
+        <AnimatedSection><Experience /></AnimatedSection>
         <Projects />
-        <OpenSource />
-        <Programs />
-        <Skills />
-        <Leadership />
-        <Contact />
+        <AnimatedSection><OpenSource /></AnimatedSection>
+        <AnimatedSection><Programs /></AnimatedSection>
+        <AnimatedSection><Skills /></AnimatedSection>
+        <AnimatedSection><Leadership /></AnimatedSection>
+        <AnimatedSection><Contact /></AnimatedSection>
       </main>
       <Footer />
     </>

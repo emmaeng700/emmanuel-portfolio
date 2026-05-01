@@ -1,6 +1,8 @@
 import { openSource, openSourceStats } from '@/data/resume';
 import { GitMerge, GitPullRequest } from 'lucide-react';
 import { GithubIcon } from '@/components/icons';
+import CountUp from '@/components/CountUp';
+import AnimatedSection from '@/components/AnimatedSection';
 
 export default function OpenSource() {
   return (
@@ -59,12 +61,16 @@ export default function OpenSource() {
             { label: 'Total PRs', value: openSourceStats.totalPRs, sub: 'Across major OSS repos' },
             { label: 'CLAs Signed', value: openSourceStats.clas, sub: 'Contributor agreements' },
             { label: 'Active PRs', value: openSourceStats.activePRs, sub: 'facebook/react' },
-          ].map((stat) => (
-            <div key={stat.label} style={{ padding: '20px 24px', borderRadius: 10, border: '1px solid var(--border)', background: 'var(--background)' }}>
-              <p style={{ fontSize: '1.8rem', fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--accent)' }}>{stat.value}</p>
-              <p style={{ fontWeight: 600, fontSize: '0.88rem', marginTop: 2 }}>{stat.label}</p>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: 2 }}>{stat.sub}</p>
-            </div>
+          ].map((stat, i) => (
+            <AnimatedSection key={stat.label} delay={i * 80}>
+              <div style={{ padding: '20px 24px', borderRadius: 10, border: '1px solid var(--border)', background: 'var(--background)' }}>
+                <p style={{ fontSize: '1.8rem', fontWeight: 800, letterSpacing: '-0.03em', color: 'var(--accent)' }}>
+                  <CountUp value={stat.value} />
+                </p>
+                <p style={{ fontWeight: 600, fontSize: '0.88rem', marginTop: 2 }}>{stat.label}</p>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: 2 }}>{stat.sub}</p>
+              </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

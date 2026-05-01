@@ -3,6 +3,8 @@
 import { projects } from '@/data/resume';
 import { ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from '@/components/icons';
+import TiltCard from '@/components/TiltCard';
+import AnimatedSection from '@/components/AnimatedSection';
 
 const categoryColor: Record<string, string> = {
   systems: '#f59e0b',
@@ -30,8 +32,9 @@ export default function Projects() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
-        {projects.map((p) => (
-          <div key={p.name} className="card" style={{ padding: 28, display: 'flex', flexDirection: 'column', gap: 16 }}>
+        {projects.map((p, i) => (
+          <AnimatedSection key={p.name} delay={i * 100}>
+          <TiltCard className="card" style={{ padding: 28, display: 'flex', flexDirection: 'column', gap: 16, height: '100%' }}>
             {/* Category badge */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{
@@ -78,7 +81,8 @@ export default function Projects() {
                 <span key={t} className="tag">{t}</span>
               ))}
             </div>
-          </div>
+          </TiltCard>
+          </AnimatedSection>
         ))}
       </div>
     </section>

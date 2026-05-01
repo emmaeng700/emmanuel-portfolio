@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { personal } from '@/data/resume';
 import { Mail, ArrowDown } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/icons';
+import ParticleField from '@/components/ParticleField';
 
 const roles = [
   'Systems Engineer',
@@ -50,6 +51,9 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
+      {/* Three.js particle field */}
+      <ParticleField />
+
       {/* Background radial glow */}
       <div
         style={{
