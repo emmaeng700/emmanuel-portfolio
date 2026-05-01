@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { personal } from '@/data/resume';
 import { Mail, ArrowDown } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/icons';
@@ -65,8 +66,33 @@ export default function Hero() {
       />
 
       <div style={{ textAlign: 'center', maxWidth: 740, position: 'relative', zIndex: 1 }}>
+
+        {/* Profile photo */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 28 }}>
+          <div style={{
+            position: 'relative',
+            width: 110,
+            height: 110,
+            borderRadius: '50%',
+            padding: 3,
+            background: 'linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa)',
+            boxShadow: '0 0 32px rgba(99,102,241,0.25)',
+          }}>
+            <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', border: '2px solid var(--background)' }}>
+              <Image
+                src="/me.jpg"
+                alt="Emmanuel Acheampong Oppong"
+                width={110}
+                height={110}
+                style={{ objectFit: 'cover', objectPosition: 'center top', width: '100%', height: '100%' }}
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
         {/* Available badge */}
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 999, border: '1px solid var(--border)', background: 'var(--surface)', marginBottom: 32, fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 999, border: '1px solid var(--border)', background: 'var(--surface)', marginBottom: 24, fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
           <span className="glow-dot" />
           Open to SWE internships · Summer / Fall 2026
         </div>
@@ -80,7 +106,7 @@ export default function Hero() {
         </h1>
 
         {/* Typewriter role */}
-        <div style={{ fontSize: 'clamp(1rem, 2.5vw, 1.3rem)', fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 24, height: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0 }}>
+        <div style={{ fontSize: 'clamp(1rem, 2.5vw, 1.3rem)', fontWeight: 500, color: 'var(--text-secondary)', marginBottom: 24, height: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ fontFamily: 'monospace', color: 'var(--accent)' }}>&gt; </span>
           <span style={{ marginLeft: 8 }}>{displayed}</span>
           <span style={{ display: 'inline-block', width: 2, height: '1.2em', background: 'var(--accent)', marginLeft: 2, animation: 'blink 1s step-end infinite' }} />
@@ -88,7 +114,7 @@ export default function Hero() {
 
         {/* Tagline */}
         <p style={{ fontSize: '1rem', color: 'var(--text-muted)', maxWidth: 520, margin: '0 auto 40px', lineHeight: 1.7 }}>
-          CS @ Grambling State · NVIDIA Bridge · Google G-SWEP · Hubtel internship · Merged PRs to React & Kubernetes
+          CS @ Grambling State · NVIDIA Bridge · Google G-SWEP · Hubtel internship · Merged PRs to React & Kafka
         </p>
 
         {/* CTAs */}
