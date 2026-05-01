@@ -3,10 +3,14 @@
 import { personal } from '@/data/resume';
 import { Mail, ArrowUpRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/icons';
+import ContactWave from '@/components/ContactWave';
 
 export default function Contact() {
   return (
     <section id="contact" style={{ padding: '96px 24px', maxWidth: 1100, margin: '0 auto' }}>
+      {/* Three.js portal rings */}
+      <ContactWave />
+
       <div style={{ maxWidth: 640, margin: '0 auto', textAlign: 'center' }}>
         <p className="section-label" style={{ marginBottom: 16 }}>Contact</p>
         <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 16 }}>

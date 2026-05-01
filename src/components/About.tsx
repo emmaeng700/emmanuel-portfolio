@@ -1,5 +1,6 @@
 import { education } from '@/data/resume';
 import { Trophy, GraduationCap, BookOpen } from 'lucide-react';
+import CrystalShape from '@/components/CrystalShape';
 
 export default function About() {
   return (
@@ -9,6 +10,11 @@ export default function About() {
         <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 700, letterSpacing: '-0.02em', maxWidth: 560 }}>
           Building at the intersection of systems and intelligence
         </h2>
+      </div>
+
+      {/* Three.js decorative shape */}
+      <div style={{ marginBottom: 32, borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', background: 'var(--surface)' }}>
+        <CrystalShape />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>

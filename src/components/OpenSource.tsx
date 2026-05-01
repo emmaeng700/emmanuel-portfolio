@@ -3,11 +3,15 @@ import { GitMerge, GitPullRequest } from 'lucide-react';
 import { GithubIcon } from '@/components/icons';
 import CountUp from '@/components/CountUp';
 import AnimatedSection from '@/components/AnimatedSection';
+import RepoGraph from '@/components/RepoGraph';
 
 export default function OpenSource() {
   return (
     <section id="opensource" style={{ padding: '96px 24px', background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+        {/* Three.js repo network */}
+        <RepoGraph />
+
         <div style={{ marginBottom: 48 }}>
           <p className="section-label" style={{ marginBottom: 12 }}>Open Source</p>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 700, letterSpacing: '-0.02em', maxWidth: 520 }}>
