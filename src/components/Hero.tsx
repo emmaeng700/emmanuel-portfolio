@@ -6,6 +6,7 @@ import { personal } from '@/data/resume';
 import { Mail, ArrowDown } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/icons';
 import ParticleField from '@/components/ParticleField';
+import MagneticWrapper from '@/components/MagneticWrapper';
 
 const roles = [
   'Systems Engineer',
@@ -122,73 +123,97 @@ export default function Hero() {
         </p>
 
         {/* CTAs */}
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 48 }}>
-          <a
-            href="#projects"
-            style={{
-              padding: '12px 28px',
-              borderRadius: 10,
-              background: 'var(--accent)',
-              color: '#fff',
-              fontWeight: 600,
-              fontSize: '0.9rem',
-              textDecoration: 'none',
-              transition: 'opacity 0.2s, transform 0.2s',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.88'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)'; }}
-          >
-            View Projects
-          </a>
-          <a
-            href={personal.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              padding: '12px 28px',
-              borderRadius: 10,
-              border: '1px solid var(--border)',
-              background: 'var(--surface)',
-              color: 'var(--text-primary)',
-              fontWeight: 600,
-              fontSize: '0.9rem',
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              transition: 'border-color 0.2s',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--accent)')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
-          >
-            <GithubIcon size={16} /> GitHub
-          </a>
+        <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 48 }}>
+          <MagneticWrapper>
+            <a
+              href="#projects"
+              style={{
+                padding: '12px 30px',
+                borderRadius: 10,
+                background: 'var(--accent)',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '0.9rem',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                transition: 'opacity 0.2s, box-shadow 0.2s',
+                boxShadow: '0 0 0 rgba(99,102,241,0)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.opacity = '0.9';
+                e.currentTarget.style.boxShadow = '0 0 24px rgba(99,102,241,0.45)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.opacity = '1';
+                e.currentTarget.style.boxShadow = '0 0 0 rgba(99,102,241,0)';
+              }}
+            >
+              View Projects
+            </a>
+          </MagneticWrapper>
+
+          <MagneticWrapper>
+            <a
+              href={personal.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: '12px 30px',
+                borderRadius: 10,
+                border: '1px solid var(--border)',
+                background: 'var(--surface)',
+                color: 'var(--text-primary)',
+                fontWeight: 600,
+                fontSize: '0.9rem',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                transition: 'border-color 0.2s, box-shadow 0.2s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--accent)';
+                e.currentTarget.style.boxShadow = '0 0 18px rgba(99,102,241,0.2)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--border)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <GithubIcon size={16} /> GitHub
+            </a>
+          </MagneticWrapper>
         </div>
 
         {/* Social icons */}
         <div style={{ display: 'flex', gap: 20, justifyContent: 'center' }}>
           {[
             { href: personal.linkedin, icon: <LinkedinIcon size={18} />, label: 'LinkedIn' },
-            { href: personal.github, icon: <GithubIcon size={18} />, label: 'GitHub' },
+            { href: personal.github,   icon: <GithubIcon   size={18} />, label: 'GitHub' },
             { href: `mailto:${personal.email}`, icon: <Mail size={18} />, label: 'Email' },
           ].map(({ href, icon, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
-            >
-              {icon}
-            </a>
+            <MagneticWrapper key={label} strength={0.5}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                style={{ color: 'var(--text-muted)', transition: 'color 0.2s', display: 'block' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-muted)')}
+              >
+                {icon}
+              </a>
+            </MagneticWrapper>
           ))}
         </div>
+
+        {/* Subtle click-to-interact hint */}
+        <p style={{ marginTop: 24, fontSize: '0.72rem', color: 'var(--text-muted)', letterSpacing: '0.12em', opacity: 0.6 }}>
+          CLICK · MOVE · EXPLORE
+        </p>
       </div>
 
       {/* Scroll indicator */}

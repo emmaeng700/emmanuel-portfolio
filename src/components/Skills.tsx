@@ -1,4 +1,5 @@
 import { skills } from '@/data/resume';
+import SkillsGlobe from '@/components/SkillsGlobe';
 
 const groupColors: Record<string, { bg: string; color: string; border: string }> = {
   Languages:               { bg: 'rgba(99,102,241,0.08)',  color: '#818cf8', border: 'rgba(99,102,241,0.2)' },
@@ -16,6 +17,14 @@ export default function Skills() {
         <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: 700, letterSpacing: '-0.02em' }}>
           Technical toolkit
         </h2>
+      </div>
+
+      {/* 3-D interactive globe */}
+      <div style={{ marginBottom: 40, borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', background: 'var(--surface)' }}>
+        <div style={{ padding: '12px 20px 0', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', letterSpacing: '0.1em' }}>DRAG TO ROTATE · AUTO-SPINS</span>
+        </div>
+        <SkillsGlobe />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20 }}>

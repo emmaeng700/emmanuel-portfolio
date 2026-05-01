@@ -12,10 +12,12 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Cursor from '@/components/Cursor';
 import AnimatedSection from '@/components/AnimatedSection';
+import ScrollProgress from '@/components/ScrollProgress';
 
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
       <Cursor />
       <Navbar />
       <main>
