@@ -11,26 +11,27 @@ import Leadership from '@/components/Leadership';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Cursor from '@/components/Cursor';
-import AnimatedSection from '@/components/AnimatedSection';
 import ScrollProgress from '@/components/ScrollProgress';
+import ScrollReveal from '@/components/ScrollReveal';
 
 export default function Home() {
   return (
     <>
       <ScrollProgress />
       <Cursor />
+      <ScrollReveal />
       <Navbar />
       <main>
         <Hero />
         <Currently />
-        <AnimatedSection><About /></AnimatedSection>
-        <AnimatedSection><Experience /></AnimatedSection>
+        <About />
+        <Experience />
         <Projects />
-        <AnimatedSection><OpenSource /></AnimatedSection>
-        <AnimatedSection><Programs /></AnimatedSection>
-        <AnimatedSection><Skills /></AnimatedSection>
-        <AnimatedSection><Leadership /></AnimatedSection>
-        <AnimatedSection><Contact /></AnimatedSection>
+        <OpenSource />
+        <Programs />
+        <Skills />
+        <Leadership />
+        <Contact />
       </main>
       <Footer />
     </>
