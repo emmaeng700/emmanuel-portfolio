@@ -46,15 +46,20 @@ export default function Experience() {
           50%     { box-shadow: 0 0 0 1px rgba(52,211,153,0.65), 0 8px 40px rgba(52,211,153,0.16); }
         }
         /* ── responsive: collapse to left-aligned on small screens ── */
+        /* Hide inline period on desktop — the meta column already shows it */
+        .exp-mobile-meta { display: none; }
+
         @media (max-width: 700px) {
-          .exp-row      { flex-direction: column !important; }
-          .exp-meta-col { display: none !important; }
-          .exp-center   { flex-direction: row !important; width: auto !important;
-                          padding-bottom: 0 !important; }
-          .exp-card-col { padding-left: 20px !important; padding-right: 0 !important;
-                          padding-bottom: 48px !important; }
+          .exp-row        { flex-direction: column !important; }
+          .exp-meta-col   { display: none !important; }
+          .exp-center     { flex-direction: row !important; width: auto !important;
+                            padding-bottom: 0 !important; }
+          .exp-card-col   { padding-left: 20px !important; padding-right: 0 !important;
+                            padding-bottom: 48px !important; }
           .exp-card-col-left { padding-right: 20px !important; padding-left: 0 !important;
                                padding-bottom: 48px !important; }
+          /* Show inline period again on mobile since meta column is hidden */
+          .exp-mobile-meta { display: block !important; }
         }
       `}</style>
 

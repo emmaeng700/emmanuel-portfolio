@@ -33,18 +33,6 @@ export const education = {
 
 export const experience = [
   {
-    company: "Outamation",
-    role: "Extern",
-    period: "May 2026 – Present",
-    location: "Remote",
-    bullets: [
-      "Built modular, AI-powered pipelines to process 200+ page mortgage blob files — combining OCR (Tesseract, PaddleOCR), PDF parsing (PyMuPDF), and RAG techniques for intelligent data extraction, classification, and search.",
-      "Developed a document retrieval system using LlamaIndex and Retrieval-Augmented Generation (RAG), optimized for multi-document mortgage blobs; enhanced precision through chunk tuning, metadata filtering, and evaluation of open-source LLMs including Mistral and Phi-2.",
-      "Conducted end-to-end evaluation benchmarking OCR accuracy, RAG retrieval quality, and routing performance across 200+ page documents; delivered a technical report outlining model trade-offs, optimization strategies, and final deployment recommendations.",
-    ],
-    tags: ["RAG", "LlamaIndex", "OCR", "PyMuPDF", "Mistral", "Phi-2", "Python"],
-  },
-  {
     company: "Develop for Good",
     role: "Engineer",
     period: "May 2026 – Aug 2026",
@@ -55,6 +43,18 @@ export const experience = [
       "Collaborating in weekly client-facing meetings and cross-functional team syncs; managing project scope and delivery milestones across a 16-week engagement.",
     ],
     tags: ["Web Design", "Accessibility", "Nonprofits", "Information Architecture"],
+  },
+  {
+    company: "Outamation",
+    role: "Extern",
+    period: "May 2026 – Present",
+    location: "Remote",
+    bullets: [
+      "Built modular, AI-powered pipelines to process 200+ page mortgage blob files — combining OCR (Tesseract, PaddleOCR), PDF parsing (PyMuPDF), and RAG techniques for intelligent data extraction, classification, and search.",
+      "Developed a document retrieval system using LlamaIndex and Retrieval-Augmented Generation (RAG), optimized for multi-document mortgage blobs; enhanced precision through chunk tuning, metadata filtering, and evaluation of open-source LLMs including Mistral and Phi-2.",
+      "Conducted end-to-end evaluation benchmarking OCR accuracy, RAG retrieval quality, and routing performance across 200+ page documents; delivered a technical report outlining model trade-offs, optimization strategies, and final deployment recommendations.",
+    ],
+    tags: ["RAG", "LlamaIndex", "OCR", "PyMuPDF", "Mistral", "Phi-2", "Python"],
   },
   {
     company: "Grambling State University",
