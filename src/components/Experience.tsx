@@ -52,12 +52,12 @@ export default function Experience() {
         @media (max-width: 700px) {
           .exp-row        { flex-direction: column !important; }
           .exp-meta-col   { display: none !important; }
-          .exp-center     { flex-direction: row !important; width: auto !important;
-                            padding-bottom: 0 !important; }
-          .exp-card-col   { padding-left: 20px !important; padding-right: 0 !important;
-                            padding-bottom: 48px !important; }
-          .exp-card-col-left { padding-right: 20px !important; padding-left: 0 !important;
-                               padding-bottom: 48px !important; }
+          /* Hide the timeline spine (dot + line) on mobile — cards stack directly */
+          .exp-center     { display: none !important; }
+          .exp-card-col   { padding-left: 0 !important; padding-right: 0 !important;
+                            padding-bottom: 32px !important; }
+          .exp-card-col-left { padding-right: 0 !important; padding-left: 0 !important;
+                               padding-bottom: 32px !important; }
           /* Show inline period again on mobile since meta column is hidden */
           .exp-mobile-meta { display: block !important; }
         }
