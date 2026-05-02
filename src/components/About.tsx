@@ -12,8 +12,8 @@ export default function About() {
         </h2>
       </div>
 
-      {/* Three.js decorative shape */}
-      <div style={{ marginBottom: 32, borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', background: 'var(--surface)' }}>
+      {/* Three.js decorative shape — hidden on mobile */}
+      <div className="crystal-hide-mobile" style={{ marginBottom: 32, borderRadius: 16, overflow: 'hidden', border: '1px solid var(--border)', background: 'var(--surface)' }}>
         <CrystalShape />
       </div>
 

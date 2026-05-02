@@ -88,18 +88,28 @@ export default function SkillsGlobe() {
     let w = mount.clientWidth;
     let h = mount.clientHeight;
 
+    const R = 18; // globe radius (world units)
+
     /* ── Scene ───────────────────────────────────────────── */
     const scene  = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(44, w / h, 0.1, 1000);
-    camera.position.z = 58;
+
+    /* Fit camera so globe always fills canvas without clipping */
+    const fitCamera = () => {
+      const aspect    = w / h;
+      const vFovRad   = camera.fov * Math.PI / 180;
+      const hFovRad   = 2 * Math.atan(Math.tan(vFovRad / 2) * aspect);
+      const minFov    = Math.min(vFovRad, hFovRad);
+      camera.position.z = (R * 1.32) / Math.tan(minFov / 2);
+      camera.updateProjectionMatrix();
+    };
+    fitCamera();
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(w, h);
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
-
-    const R = 18; // globe radius (world units)
 
     /* ── Globe group ─────────────────────────────────────── */
     const globe = new THREE.Group();
@@ -224,7 +234,7 @@ export default function SkillsGlobe() {
     const onResize = () => {
       w = mount.clientWidth; h = mount.clientHeight;
       camera.aspect = w / h;
-      camera.updateProjectionMatrix();
+      fitCamera();
       renderer.setSize(w, h);
     };
     window.addEventListener('resize', onResize);
@@ -313,7 +323,7 @@ export default function SkillsGlobe() {
   }, []);
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: 460 }}>
+    <div style={{ position: 'relative', width: '100%', height: 'clamp(280px, 100vw, 460px)' }}>
       <div ref={mountRef} style={{ width: '100%', height: '100%' }} />
 
       {/* HTML tooltip — positioned by JS in animation loop */}

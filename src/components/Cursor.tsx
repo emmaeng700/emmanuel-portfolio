@@ -9,8 +9,12 @@ export default function Cursor() {
   const ring = useRef({ x: -100, y: -100 });
 
   useEffect(() => {
-    // Only on desktop
-    if (window.matchMedia('(pointer: coarse)').matches) return;
+    // Only on desktop — hide elements and bail on touch devices
+    if (window.matchMedia('(pointer: coarse)').matches) {
+      if (dotRef.current)  dotRef.current.style.display  = 'none';
+      if (ringRef.current) ringRef.current.style.display = 'none';
+      return;
+    }
 
     const dot = dotRef.current;
     const ringEl = ringRef.current;

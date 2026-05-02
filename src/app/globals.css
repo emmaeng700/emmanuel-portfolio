@@ -26,6 +26,12 @@ body {
   color: var(--text-primary);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Hide Three.js decorations that don't render well on mobile */
+@media (max-width: 700px) {
+  .crystal-hide-mobile { display: none !important; }
 }
 
 ::selection {

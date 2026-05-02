@@ -21,10 +21,10 @@ interface Node {
 
 const NODES: Node[] = [
   { label: 'Emmanuel',       x:  0,    y:  0,   color: 0x6366f1, cssColor: '#6366f1', status: 'center', radius: 3.2 },
-  { label: 'facebook/react', x: -18,   y:  9,   color: 0xf59e0b, cssColor: '#f59e0b', status: 'active', radius: 2.0 },
-  { label: 'apache/kafka',   x:  16,   y:  10,  color: 0x34d399, cssColor: '#34d399', status: 'merged', radius: 2.0 },
-  { label: 'kubernetes',     x:  0,    y: -15,  color: 0x34d399, cssColor: '#34d399', status: 'merged', radius: 2.0 },
-  { label: 'pgjdbc',         x: -15,   y: -8,   color: 0x34d399, cssColor: '#34d399', status: 'merged', radius: 2.0 },
+  { label: 'facebook/react', x: -13,   y:  8,   color: 0xf59e0b, cssColor: '#f59e0b', status: 'active', radius: 2.0 },
+  { label: 'apache/kafka',   x:  13,   y:  8,   color: 0x34d399, cssColor: '#34d399', status: 'merged', radius: 2.0 },
+  { label: 'kubernetes',     x:  0,    y: -10,  color: 0x34d399, cssColor: '#34d399', status: 'merged', radius: 2.0 },
+  { label: 'pgjdbc',         x: -12,   y: -6,   color: 0x34d399, cssColor: '#34d399', status: 'merged', radius: 2.0 },
 ];
 
 /* Glowing circle texture */
@@ -172,8 +172,10 @@ export default function RepoGraph() {
         const sx = ((tmpV.x + 1) / 2) * w;
         const sy = ((-tmpV.y + 1) / 2) * h;
         const el = labelEls[i];
-        el.style.left = sx + 'px';
-        el.style.top  = (sy + NODES[i].radius * 18) + 'px';
+        // Clamp labels so they never clip at edges
+        const labelX = Math.max(36, Math.min(w - 36, sx));
+        el.style.left = labelX + 'px';
+        el.style.top  = Math.min(h - 16, sy + NODES[i].radius * 13) + 'px';
       });
 
       renderer.render(scene, camera);
@@ -192,7 +194,7 @@ export default function RepoGraph() {
   return (
     <div
       ref={mountRef}
-      style={{ width: '100%', height: 240, position: 'relative' }}
+      style={{ width: '100%', height: 240, position: 'relative', overflow: 'hidden' }}
       aria-hidden="true"
     />
   );
