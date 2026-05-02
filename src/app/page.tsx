@@ -13,6 +13,7 @@ import Footer from '@/components/Footer';
 import Cursor from '@/components/Cursor';
 import ScrollProgress from '@/components/ScrollProgress';
 import ScrollReveal from '@/components/ScrollReveal';
+import MobileNav from '@/components/MobileNav';
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
         <Leadership />
         <Contact />
       </main>
+      <MobileNav />
       <Footer />
     </>
   );
